@@ -39,6 +39,33 @@ namespace ChamadosTecnicosTec55.Adicionar
             {
                 MessageBox.Show("CADE OS DADOSSS ??");
             }
+            else
+            {
+                //TODA VEZ QUE MEXER  COM BD USAR TRU
+                try
+                {
+                    //PREENCHER  O OBJETO CLIENTE
+                    cliente.Nome = txbNome.Text;
+                    cliente.Profissao = txbProfissao.Text;
+                    cliente.Setor = txbSetor.Text;
+                    cliente.Obs = txbObs.Text;
+
+                    //Chama o DAO para incluir o cliente
+                    clientedao.IncluiCliente(cliente);  
+                }
+
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Erro ao Cadrastrar", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                // Para quando der certo o cadrastro aparecer a message box
+                finally
+                {
+                    MessageBox.Show(" Cadastrado com sucesso!!!! ");
+                }
+            }
         }
     }
 }
+

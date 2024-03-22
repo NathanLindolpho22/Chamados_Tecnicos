@@ -17,7 +17,7 @@ namespace ChamadosTecnicosTec55
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAdicionarCliente());
+            Application.Run(new fmrTecnicoAdicionar());
         }
     }
 }

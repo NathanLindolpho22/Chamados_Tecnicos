@@ -48,28 +48,28 @@
             this.txbNome.Location = new System.Drawing.Point(12, 67);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(344, 20);
-            this.txbNome.TabIndex = 0;
+            this.txbNome.TabIndex = 1;
             // 
             // txbEspecialidade
             // 
             this.txbEspecialidade.Location = new System.Drawing.Point(12, 125);
             this.txbEspecialidade.Name = "txbEspecialidade";
             this.txbEspecialidade.Size = new System.Drawing.Size(344, 20);
-            this.txbEspecialidade.TabIndex = 1;
+            this.txbEspecialidade.TabIndex = 2;
             // 
             // txbEmail
             // 
             this.txbEmail.Location = new System.Drawing.Point(12, 181);
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(344, 20);
-            this.txbEmail.TabIndex = 2;
+            this.txbEmail.TabIndex = 3;
             // 
             // txbSenha
             // 
             this.txbSenha.Location = new System.Drawing.Point(12, 242);
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.Size = new System.Drawing.Size(344, 20);
-            this.txbSenha.TabIndex = 3;
+            this.txbSenha.TabIndex = 4;
             // 
             // txbObs
             // 
@@ -77,7 +77,7 @@
             this.txbObs.Multiline = true;
             this.txbObs.Name = "txbObs";
             this.txbObs.Size = new System.Drawing.Size(344, 72);
-            this.txbObs.TabIndex = 4;
+            this.txbObs.TabIndex = 5;
             // 
             // label1
             // 
@@ -144,7 +144,7 @@
             this.button1.Location = new System.Drawing.Point(15, 397);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 41);
-            this.button1.TabIndex = 12;
+            this.button1.TabIndex = 6;
             this.button1.Text = "SALVAR";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -154,7 +154,7 @@
             this.button2.Location = new System.Drawing.Point(241, 397);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 41);
-            this.button2.TabIndex = 13;
+            this.button2.TabIndex = 7;
             this.button2.Text = "LIMPAR";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);

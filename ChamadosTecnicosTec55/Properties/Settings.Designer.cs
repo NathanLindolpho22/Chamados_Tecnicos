@@ -12,7 +12,7 @@ namespace ChamadosTecnicosTec55.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.8.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,7 +26,7 @@ namespace ChamadosTecnicosTec55.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-H14F4QM\\SQLEXPRESS;\nInitial Catalog=bd_Chamados_Tec55;\nIntegr" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SJR0577161W10-1\\SQLEXPRESS;\nInitial Catalog=bd_Chamados_Tec55;\nIntegr" +
             "ated Security=True")]
         public string Conexao {
             get {

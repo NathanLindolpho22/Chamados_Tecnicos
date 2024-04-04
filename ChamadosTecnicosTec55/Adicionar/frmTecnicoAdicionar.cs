@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace ChamadosTecnicosTec55.Adicionar
 {
-    public partial class fmrTecnicoAdicionar : Form
+    public partial class frmTecnicoAdicionar : Form
     {
         // Chamaaa a conexão 
         string _conexao = ChamadosTecnicosTec55.Properties.Settings.Default.Conexao;
 
-        public fmrTecnicoAdicionar()
+        public frmTecnicoAdicionar()
         {
             InitializeComponent();
         }

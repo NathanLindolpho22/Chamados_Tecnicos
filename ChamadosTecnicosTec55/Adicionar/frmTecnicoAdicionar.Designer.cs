@@ -1,6 +1,6 @@
 ﻿namespace ChamadosTecnicosTec55.Adicionar
 {
-    partial class fmrTecnicoAdicionar
+    partial class frmTecnicoAdicionar
     {
         /// <summary>
         /// Required designer variable.

@@ -78,6 +78,7 @@
             this.txbObs.Name = "txbObs";
             this.txbObs.Size = new System.Drawing.Size(344, 72);
             this.txbObs.TabIndex = 5;
+            this.txbObs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbObs_KeyPress);
             // 
             // label1
             // 
@@ -159,7 +160,7 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // fmrTecnicoAdicionar
+            // frmTecnicoAdicionar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -177,7 +178,7 @@
             this.Controls.Add(this.txbEmail);
             this.Controls.Add(this.txbEspecialidade);
             this.Controls.Add(this.txbNome);
-            this.Name = "fmrTecnicoAdicionar";
+            this.Name = "frmTecnicoAdicionar";
             this.Text = "fmrTecnicoAdicionar";
             this.ResumeLayout(false);
             this.PerformLayout();

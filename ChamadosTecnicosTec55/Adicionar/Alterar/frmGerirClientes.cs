@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -44,5 +45,64 @@ namespace ChamadosTecnicosTec55.Adicionar.Alterar
         {
             ListarClientes();
         }
+
+        private void dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            //para buscar cliente pode ser tambem:
+            //if(txbBuscar.text != "")
+            //{
+            //ListarCliente();
+            //}
+
+            //else
+            //{
+            //MessageBox.Show("Digite algo para buscar");
+            //}
+
+
+                {
+                    string pesquisa = txtBusca.Text;
+                    string query = "SELECT * FROM Clientes WHERE Nome like @pesquisa"; 
+
+                    try
+                    {
+                        using (var conexaoBd = new SqlConnection(_conexao))
+                        using (var comando = new SqlCommand(query, conexaoBd))
+                        using (var adaptador = new SqlDataAdapter(comando))
+                        {
+                            string parametroPesquisa = $"%{pesquisa}%";
+                            comando.Parameters.AddWithValue("@pesquisa", parametroPesquisa);
+                            conexaoBd.Open();
+                            var dsClientes = new DataSet();
+                            adaptador.Fill(dsClientes, "Clientes");
+
+                       
+                            dgv1.DataSource = dsClientes.Tables["Clientes"];
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao buscar clientes: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                
+            }
+        }
+
+        private void txtBusca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                btnBuscar_Click(sender, e);
+            }
+
+        }
     }
 }
+
+

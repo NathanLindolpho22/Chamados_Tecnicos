@@ -48,6 +48,7 @@
             this.dgv1.Name = "dgv1";
             this.dgv1.Size = new System.Drawing.Size(711, 275);
             this.dgv1.TabIndex = 0;
+            this.dgv1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellContentClick);
             // 
             // btnIncluir
             // 
@@ -72,6 +73,7 @@
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "B";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtBusca
             // 
@@ -79,6 +81,7 @@
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(133, 20);
             this.txtBusca.TabIndex = 5;
+            this.txtBusca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBusca_KeyPress);
             // 
             // label1
             // 

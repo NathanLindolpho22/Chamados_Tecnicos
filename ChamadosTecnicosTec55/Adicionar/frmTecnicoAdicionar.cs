@@ -68,6 +68,15 @@ namespace ChamadosTecnicosTec55.Adicionar
                 }
             }
         }
+
+        private void txbObs_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                button1_Click(sender, e);
+            }
+
+        }
     }
 }
 

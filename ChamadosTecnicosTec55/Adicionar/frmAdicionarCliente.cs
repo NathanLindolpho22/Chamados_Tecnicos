@@ -67,6 +67,24 @@ namespace ChamadosTecnicosTec55.Adicionar
             }
         }
 
+        private void txbObs_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbObs_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                btnSalvar_Click(sender, e);
+            }
+
+        }
+
+        private void frmAdicionarCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

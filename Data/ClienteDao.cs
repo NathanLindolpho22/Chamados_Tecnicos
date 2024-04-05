@@ -46,5 +46,32 @@ namespace Data
 
             }
         }
+
+        public DataSet BuscarCliente(string pesquisa = "")
+        {
+            // Constante com o código SQL qque faz busca a partir de texto
+            const string query = "Select * from Clientes Where Nome like @pesquisa";
+            //Validar Erro
+            try
+            {
+                using (var conexaoBd = new SqlConnection(_conexao))
+                using (var comando = new SqlCommand(query, conexaoBd)) 
+                using (var adaptador = new SqlDataAdapter(comando))
+                {
+                    string parametroPesquisa = $"%{pesquisa}"; // ou "%"+pesquisa+"%"
+                    comando.Parameters.AddWithValue("@pesquisa", parametroPesquisa);
+                    conexaoBd.Open();
+                    var dsClientes = new DataSet();
+                    adaptador.Fill(dsClientes, "Clientes");
+                    return dsClientes;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao buscar Clientes:{ex.Message}");
+
+            }
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -53,56 +54,72 @@ namespace ChamadosTecnicosTec55.Adicionar.Alterar
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            //para buscar cliente pode ser tambem:
-            //if(txbBuscar.text != "")
-            //{
-            //ListarCliente();
-            //}
 
-            //else
-            //{
-            //MessageBox.Show("Digite algo para buscar");
-            //}
-
-
-                {
-                    string pesquisa = txtBusca.Text;
-                    string query = "SELECT * FROM Clientes WHERE Nome like @pesquisa"; 
-
-                    try
-                    {
-                        using (var conexaoBd = new SqlConnection(_conexao))
-                        using (var comando = new SqlCommand(query, conexaoBd))
-                        using (var adaptador = new SqlDataAdapter(comando))
-                        {
-                            string parametroPesquisa = $"%{pesquisa}%";
-                            comando.Parameters.AddWithValue("@pesquisa", parametroPesquisa);
-                            conexaoBd.Open();
-                            var dsClientes = new DataSet();
-                            adaptador.Fill(dsClientes, "Clientes");
-
-                       
-                            dgv1.DataSource = dsClientes.Tables["Clientes"];
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Erro ao buscar clientes: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                
+            if (txtBusca.Text != "")
+            {
+                ListarClientes();
             }
+
+            else
+            {
+                MessageBox.Show("Digite algo para buscar");
+            }
+
+
+            // {
+            // string pesquisa = txtBusca.Text;
+            //  string query = "SELECT * FROM Clientes WHERE Nome like @pesquisa"; 
+
+            //  try
+            //{
+            //   using (var conexaoBd = new SqlConnection(_conexao))
+            //   using (var comando = new SqlCommand(query, conexaoBd))
+            //  using (var adaptador = new SqlDataAdapter(comando))
+            //  {
+            //  string parametroPesquisa = $"%{pesquisa}%";
+            // comando.Parameters.AddWithValue("@pesquisa", parametroPesquisa);
+            // conexaoBd.Open();
+            // var dsClientes = new DataSet();
+            // adaptador.Fill(dsClientes, "Clientes");
+
+
+            //  dgv1.DataSource = dsClientes.Tables["Clientes"];
+            // }
+            //  }
+            // catch (Exception ex)
+            // {
+            //  MessageBox.Show($"Erro ao buscar clientes: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            // }
+
+
         }
 
-        private void txtBusca_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnAlterar_Click(object sender, EventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                btnBuscar_Click(sender, e);
-            }
+            // Verifique se alguma linha esta selecionada no DGV
 
+            if (dgv1.SelectedRows.Count>0)
+            {
+                // obtem o codigo do cliente da linha selecionada 
+                int codigo = Convert.ToInt32(dgv1.CurrentRow.Cells[0].Value);
+                var frmAlterarCliente = new frmAlterarCliente();    
+                frmAlterarCliente.ShowDialog();
+
+                //Apos a tela fechar listar os clientes cadastros 
+                ListarClientes();
+
+            }
+            else
+            {
+                //exibe uma mensagem de Aviso se nenhuma linha estiver selecionada
+                MessageBox.Show("Selecione um registro para alteração");
+            }
         }
     }
 }
+        
+
+
+
 
 

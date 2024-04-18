@@ -21,63 +21,43 @@ namespace ChamadosTecnicosTec55.Adicionar
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            txbNome.Clear();
-            txbEspecialidade.Clear();
-            txbEmail.Clear();
-            txbSenha.Clear();
-            txbObs.Clear();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
             // Chama o objeto Cliente
             Tecnico tecnico = new Tecnico();
             TecnicoDao tecnicodao = new TecnicoDao(_conexao);
 
-            if (string.IsNullOrWhiteSpace(txbNome.Text) || string.IsNullOrWhiteSpace(txbObs.Text) || string.IsNullOrWhiteSpace(txbEspecialidade.Text) || string.IsNullOrWhiteSpace(txbSenha.Text) || string.IsNullOrWhiteSpace(txbEmail.Text))
+            if (string.IsNullOrWhiteSpace(txbNome.Text) || string.IsNullOrWhiteSpace(txbEspecialidade.Text) || string.IsNullOrWhiteSpace(txbEmail.Text) || string.IsNullOrWhiteSpace(txbSenha.Text) || string.IsNullOrWhiteSpace(txbObs.Text))
             {
                 MessageBox.Show("CADE OS DADOSSS ??");
             }
             else
             {
-                //TODA VEZ QUE MEXER  COM BD USAR TRU
+                // TODA VEZ QUE MEXER COM BD USAR TRY
                 try
                 {
-                    //PREENCHER  O OBJETO CLIENTE
+                    // Preenche o Objeto Cliente
                     tecnico.Nome = txbNome.Text;
                     tecnico.Especialidade = txbEspecialidade.Text;
                     tecnico.Email = txbEmail.Text;
-                    tecnico.Senha = txbEmail.Text;
+                    tecnico.Senha = txbSenha.Text;
                     tecnico.Obs = txbObs.Text;
 
-                    //Chama o DAO para incluir o cliente
+                    // CHAMA O DAO para incluir o cliente
                     tecnicodao.IncluiTecnico(tecnico);
 
-                    MessageBox.Show(" Cadastrado com sucesso!!!! ");
+                    MessageBox.Show("Cadastrado com sucesso !");
 
                     this.Close();
 
                 }
-
                 catch (Exception ex)
                 {
-
-                    MessageBox.Show("Erro ao Cadrastrar" + ex, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erro ao Cadastrar" + ex, "Atenção",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
                 }
             }
         }
-
-        private void txbObs_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                button1_Click(sender, e);
-            }
-
-        }
     }
 }
-
-

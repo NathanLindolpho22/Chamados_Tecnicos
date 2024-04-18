@@ -41,50 +41,30 @@ namespace ChamadosTecnicosTec55.Adicionar
             }
             else
             {
-                //TODA VEZ QUE MEXER  COM BD USAR TRU
+                // TODA VEZ QUE MEXER COM BD USAR TRY
                 try
                 {
-                    //PREENCHER  O OBJETO CLIENTE
+                    // Preenche o Objeto Cliente
                     cliente.Nome = txbNome.Text;
                     cliente.Profissao = txbProfissao.Text;
-                    cliente.Setor = txbSetor.Text;
                     cliente.Obs = txbObs.Text;
+                    cliente.Setor = txbSetor.Text;
 
-                    //Chama o DAO para incluir o cliente
+                    // CHAMA O DAO para incluir o cliente
                     clientedao.IncluiCliente(cliente);
 
-                    MessageBox.Show(" Cadastrado com sucesso!!!! ");
+                    MessageBox.Show("Cadastrado com sucesso !");
 
                     this.Close();
 
                 }
-
-                catch (Exception ex)
+                catch(Exception ex)
                 {
-
-                    MessageBox.Show("Erro ao Cadrastrar"+ex, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erro ao Cadastrar"+ex,"Atenção",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
                 }
             }
         }
-
-        private void txbObs_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txbObs_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                btnSalvar_Click(sender, e);
-            }
-
-        }
-
-        private void frmAdicionarCliente_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
-

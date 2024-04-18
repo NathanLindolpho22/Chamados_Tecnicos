@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data; // ADO.net
-using System.Data.SqlClient; // ADO para SQL SERVER
+using System.Data.SqlClient;
+using System.Diagnostics.Contracts; // ADO para SQL SERVER
 
 namespace Data
 {
@@ -47,53 +48,52 @@ namespace Data
             }
         }
 
-        public DataSet BuscarCliente(string pesquisa = "")
+        public DataSet BuscaCliente(string pesquisa = "") 
         {
-            // Constante com o código SQL qque faz busca a partir de texto
-            const string query = "Select * from Clientes Where Nome like @pesquisa";
-            //Validar Erro
+            // Constante com o Código SQL que faz busca a partir de texto
+            const string query = "Select * From Clientes Where Nome like @pesquisa";
+
+            // Validar Erro
             try
             {
                 using (var conexaoBd = new SqlConnection(_conexao))
                 using (var comando = new SqlCommand(query, conexaoBd)) 
                 using (var adaptador = new SqlDataAdapter(comando))
                 {
-                    string parametroPesquisa = $"%{pesquisa}"; // ou "%"+pesquisa+"%"
-                    comando.Parameters.AddWithValue("@pesquisa", parametroPesquisa);
-                    conexaoBd.Open();
-                    var dsClientes = new DataSet();
-                    adaptador.Fill(dsClientes, "Clientes");
-                    return dsClientes;
+                  string parametroPesquisa = $"%{pesquisa}%";
+                  comando.Parameters.AddWithValue("@pesquisa", parametroPesquisa);
+                  conexaoBd.Open();
+                  var dsClientes = new DataSet();
+                  adaptador.Fill(dsClientes, "Clientes");
+                  return dsClientes;
                 }
-
+               
             }
             catch (Exception ex)
             {
-                throw new Exception($"Erro ao buscar Clientes:{ex.Message}");
-
+               throw new Exception($"Erro ao buscar Clientes: {ex.Message}");
             }
         }
-        //Xuxar aqui
-
+        // Xuxar aqui
         public Cliente ObtemCliente(int codigoCliente)
         {
-            //Define o SQl para obter o cliente 
-            const string query = @"select * from Clientes where CodigoCliente = @CodigoCliente";
-
+            // Define o sql para obter o cliente
+            const string query = @"select * from Clientes where
+                                   CodigoCliente = @CodigoCliente";
             Cliente cliente = null;
 
             try
             {
-                using (var conexaoBd = new SqlConnection(_conexao))
-                using (var comando = new SqlCommand(query, conexaoBd))
-                {
-                    comando.Parameters.AddWithValue("@CodigoCliente", codigoCliente);
-                    conexaoBd.Open();
-                    using (var reader = comando.ExecuteReader())
+              using(var conexaoBd = new SqlConnection(_conexao))
+              using(var comando = new SqlCommand(query,conexaoBd))
+              {
+                comando.Parameters.AddWithValue("@CodigoCliente", codigoCliente);
+                conexaoBd.Open();
+                    using(var reader = comando.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            cliente = new Cliente()
+                            cliente = new Cliente
                             {
                                 CodigoCliente = Convert.ToInt32(reader["CodigoCliente"]),
                                 Nome = reader["Nome"].ToString(),
@@ -103,17 +103,40 @@ namespace Data
                             };
                         }
                     }
-
-                }
+              }
             }
-
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                throw new Exception($"Erro ao obter Cliente {ex.Message}", ex);
+                throw new Exception($"Erro ao obter o cliente {ex.Message}", ex);
             }
             return cliente;
         }
 
+        public void AlteraCliente(Cliente cliente)
+        {
+            const string query = @"update Clientes set nome=@Nome,setor=@Setor,Profissao=@Profissao,Obs=@Observacao where CodigoCliente=@CodCliente";
+            try
+            {
+                using (var conexaoBd = new SqlConnection(_conexao))
+                using (var comando = new SqlCommand( query,conexaoBd))
+                {
+                    comando.Parameters.AddWithValue("@Nome", cliente.Nome);
+                    comando.Parameters.AddWithValue("@Profissao", cliente.Profissao);
+                    comando.Parameters.AddWithValue("@Setor", cliente.Setor);
+                    comando.Parameters.AddWithValue("@Observacao", cliente.Obs);
+                    comando.Parameters.AddWithValue("@CodCliente", cliente.CodigoCliente);
+                    conexaoBd.Open();
+                    comando.ExecuteNonQuery();    
+                }
+            }
+            catch (Exception ex) {
+                throw new Exception($"Erro{ex}"); 
+            }
+
+        }
+
+
+
+
     }
- }
- 
+}

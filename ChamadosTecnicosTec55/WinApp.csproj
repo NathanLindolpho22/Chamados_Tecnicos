@@ -49,17 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adicionar\Alterar\frmAlterarCliente.cs">
+    <Compile Include="Adicionar\frmAdicionarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Adicionar\Alterar\frmAlterarCliente.Designer.cs">
-      <DependentUpon>frmAlterarCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Adicionar\Alterar\frmGerirClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Adicionar\Alterar\frmGerirClientes.Designer.cs">
-      <DependentUpon>frmGerirClientes.cs</DependentUpon>
+    <Compile Include="Adicionar\frmAdicionarCliente.Designer.cs">
+      <DependentUpon>frmAdicionarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Adicionar\frmTecnicoAdicionar.cs">
       <SubType>Form</SubType>
@@ -67,11 +61,17 @@
     <Compile Include="Adicionar\frmTecnicoAdicionar.Designer.cs">
       <DependentUpon>frmTecnicoAdicionar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Adicionar\frmAdicionarCliente.cs">
+    <Compile Include="Alterar\frmAlterarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Adicionar\frmAdicionarCliente.Designer.cs">
-      <DependentUpon>frmAdicionarCliente.cs</DependentUpon>
+    <Compile Include="Alterar\frmAlterarCliente.Designer.cs">
+      <DependentUpon>frmAlterarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alterar\frmGerirClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alterar\frmGerirClientes.Designer.cs">
+      <DependentUpon>frmGerirClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -87,17 +87,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Adicionar\Alterar\frmAlterarCliente.resx">
-      <DependentUpon>frmAlterarCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Adicionar\Alterar\frmGerirClientes.resx">
-      <DependentUpon>frmGerirClientes.cs</DependentUpon>
+    <EmbeddedResource Include="Adicionar\frmAdicionarCliente.resx">
+      <DependentUpon>frmAdicionarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Adicionar\frmTecnicoAdicionar.resx">
       <DependentUpon>frmTecnicoAdicionar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Adicionar\frmAdicionarCliente.resx">
-      <DependentUpon>frmAdicionarCliente.cs</DependentUpon>
+    <EmbeddedResource Include="Alterar\frmAlterarCliente.resx">
+      <DependentUpon>frmAlterarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alterar\frmGerirClientes.resx">
+      <DependentUpon>frmGerirClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

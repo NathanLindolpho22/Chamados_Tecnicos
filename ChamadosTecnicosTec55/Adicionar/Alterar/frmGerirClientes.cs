@@ -102,7 +102,8 @@ namespace ChamadosTecnicosTec55.Adicionar.Alterar
             {
                 // obtem o codigo do cliente da linha selecionada 
                 int codigo = Convert.ToInt32(dgv1.CurrentRow.Cells[0].Value);
-                var frmAlterarCliente = new frmAlterarCliente();    
+
+                var frmAlterarCliente = new frmAlterarCliente(codigo);    
                 frmAlterarCliente.ShowDialog();
 
                 //Apos a tela fechar listar os clientes cadastros 

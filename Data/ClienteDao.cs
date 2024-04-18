@@ -73,5 +73,47 @@ namespace Data
 
             }
         }
+        //Xuxar aqui
+
+        public Cliente ObtemCliente(int codigoCliente)
+        {
+            //Define o SQl para obter o cliente 
+            const string query = @"select * from Clientes where CodigoCliente = @CodigoCliente";
+
+            Cliente cliente = null;
+
+            try
+            {
+                using (var conexaoBd = new SqlConnection(_conexao))
+                using (var comando = new SqlCommand(query, conexaoBd))
+                {
+                    comando.Parameters.AddWithValue("@CodigoCliente", codigoCliente);
+                    conexaoBd.Open();
+                    using (var reader = comando.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            cliente = new Cliente()
+                            {
+                                CodigoCliente = Convert.ToInt32(reader["CodigoCliente"]),
+                                Nome = reader["Nome"].ToString(),
+                                Profissao = reader["Profissao"].ToString(),
+                                Obs = reader["Obs"].ToString(),
+                                Setor = reader["Setor"].ToString()
+                            };
+                        }
+                    }
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao obter Cliente {ex.Message}", ex);
+            }
+            return cliente;
+        }
+
     }
-}
+ }
+ 

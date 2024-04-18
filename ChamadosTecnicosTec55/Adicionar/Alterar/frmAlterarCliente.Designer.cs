@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtCod = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtProfissao = new System.Windows.Forms.TextBox();
+            this.txtSetor = new System.Windows.Forms.TextBox();
+            this.txtObs = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,41 +41,42 @@
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtCod
             // 
-            this.textBox1.Location = new System.Drawing.Point(177, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtCod.Location = new System.Drawing.Point(177, 26);
+            this.txtCod.Name = "txtCod";
+            this.txtCod.ReadOnly = true;
+            this.txtCod.Size = new System.Drawing.Size(125, 20);
+            this.txtCod.TabIndex = 0;
             // 
-            // textBox2
+            // txtNome
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 103);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(269, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtNome.Location = new System.Drawing.Point(12, 103);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(269, 20);
+            this.txtNome.TabIndex = 1;
             // 
-            // textBox3
+            // txtProfissao
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 162);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(269, 20);
-            this.textBox3.TabIndex = 2;
+            this.txtProfissao.Location = new System.Drawing.Point(12, 162);
+            this.txtProfissao.Name = "txtProfissao";
+            this.txtProfissao.Size = new System.Drawing.Size(269, 20);
+            this.txtProfissao.TabIndex = 2;
             // 
-            // textBox4
+            // txtSetor
             // 
-            this.textBox4.Location = new System.Drawing.Point(12, 231);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(269, 20);
-            this.textBox4.TabIndex = 3;
+            this.txtSetor.Location = new System.Drawing.Point(12, 231);
+            this.txtSetor.Name = "txtSetor";
+            this.txtSetor.Size = new System.Drawing.Size(269, 20);
+            this.txtSetor.TabIndex = 3;
             // 
-            // textBox5
+            // txtObs
             // 
-            this.textBox5.Location = new System.Drawing.Point(12, 305);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(269, 78);
-            this.textBox5.TabIndex = 4;
+            this.txtObs.Location = new System.Drawing.Point(12, 305);
+            this.txtObs.Multiline = true;
+            this.txtObs.Name = "txtObs";
+            this.txtObs.Size = new System.Drawing.Size(269, 78);
+            this.txtObs.TabIndex = 4;
             // 
             // button1
             // 
@@ -159,11 +160,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtObs);
+            this.Controls.Add(this.txtSetor);
+            this.Controls.Add(this.txtProfissao);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.txtCod);
             this.Name = "frmAlterarCliente";
             this.Text = "frmAlterarCliente";
             this.ResumeLayout(false);
@@ -173,11 +174,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtCod;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtProfissao;
+        private System.Windows.Forms.TextBox txtSetor;
+        private System.Windows.Forms.TextBox txtObs;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

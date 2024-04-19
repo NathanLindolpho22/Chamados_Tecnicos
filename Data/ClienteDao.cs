@@ -23,7 +23,7 @@ namespace Data
         // Inserir Cliente Vulgo XUXAR
         public void IncluiCliente(Cliente cliente)
         {
-            using(SqlConnection conexaoBd = new SqlConnection(_conexao))
+            using (SqlConnection conexaoBd = new SqlConnection(_conexao))
             {
                 string sql = "insert into Clientes (nome,profissao,setor,obs) values (@nome,@profissao,@setor,@obs)";
 
@@ -48,7 +48,7 @@ namespace Data
             }
         }
 
-        public DataSet BuscaCliente(string pesquisa = "") 
+        public DataSet BuscaCliente(string pesquisa = "")
         {
             // Constante com o Código SQL que faz busca a partir de texto
             const string query = "Select * From Clientes Where Nome like @pesquisa";
@@ -57,21 +57,21 @@ namespace Data
             try
             {
                 using (var conexaoBd = new SqlConnection(_conexao))
-                using (var comando = new SqlCommand(query, conexaoBd)) 
+                using (var comando = new SqlCommand(query, conexaoBd))
                 using (var adaptador = new SqlDataAdapter(comando))
                 {
-                  string parametroPesquisa = $"%{pesquisa}%";
-                  comando.Parameters.AddWithValue("@pesquisa", parametroPesquisa);
-                  conexaoBd.Open();
-                  var dsClientes = new DataSet();
-                  adaptador.Fill(dsClientes, "Clientes");
-                  return dsClientes;
+                    string parametroPesquisa = $"%{pesquisa}%";
+                    comando.Parameters.AddWithValue("@pesquisa", parametroPesquisa);
+                    conexaoBd.Open();
+                    var dsClientes = new DataSet();
+                    adaptador.Fill(dsClientes, "Clientes");
+                    return dsClientes;
                 }
-               
+
             }
             catch (Exception ex)
             {
-               throw new Exception($"Erro ao buscar Clientes: {ex.Message}");
+                throw new Exception($"Erro ao buscar Clientes: {ex.Message}");
             }
         }
         // Xuxar aqui
@@ -84,12 +84,12 @@ namespace Data
 
             try
             {
-              using(var conexaoBd = new SqlConnection(_conexao))
-              using(var comando = new SqlCommand(query,conexaoBd))
-              {
-                comando.Parameters.AddWithValue("@CodigoCliente", codigoCliente);
-                conexaoBd.Open();
-                    using(var reader = comando.ExecuteReader())
+                using (var conexaoBd = new SqlConnection(_conexao))
+                using (var comando = new SqlCommand(query, conexaoBd))
+                {
+                    comando.Parameters.AddWithValue("@CodigoCliente", codigoCliente);
+                    conexaoBd.Open();
+                    using (var reader = comando.ExecuteReader())
                     {
                         if (reader.Read())
                         {
@@ -103,9 +103,9 @@ namespace Data
                             };
                         }
                     }
-              }
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception($"Erro ao obter o cliente {ex.Message}", ex);
             }
@@ -118,7 +118,7 @@ namespace Data
             try
             {
                 using (var conexaoBd = new SqlConnection(_conexao))
-                using (var comando = new SqlCommand( query,conexaoBd))
+                using (var comando = new SqlCommand(query, conexaoBd))
                 {
                     comando.Parameters.AddWithValue("@Nome", cliente.Nome);
                     comando.Parameters.AddWithValue("@Profissao", cliente.Profissao);
@@ -126,17 +126,44 @@ namespace Data
                     comando.Parameters.AddWithValue("@Observacao", cliente.Obs);
                     comando.Parameters.AddWithValue("@CodCliente", cliente.CodigoCliente);
                     conexaoBd.Open();
-                    comando.ExecuteNonQuery();    
+                    comando.ExecuteNonQuery();
                 }
             }
             catch (Exception ex) {
-                throw new Exception($"Erro{ex}"); 
+                throw new Exception($"Erro{ex}");
             }
 
         }
 
 
+        //Excluir Cliente
 
+        public void ExcluirClientes(int codigoCliente)
+        {
+            const string query = @"delete from clientes where
+                                   codigocliente = @codigoCliente";
 
+            try
+            {
+
+                using (var conexaoBd = new SqlConnection(_conexao))
+                using (var comando = new SqlCommand(query, conexaoBd))
+                {
+                    comando.Parameters.AddWithValue("@codigocliente", codigoCliente);
+                    conexaoBd.Open();
+                    comando.ExecuteNonQuery();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao excluir {ex.Message}", ex);
+            }
+
+        }
     }
 }
+
+
+
+ 

@@ -86,8 +86,9 @@
             // gestorDeChamadosToolStripMenuItem
             // 
             this.gestorDeChamadosToolStripMenuItem.Name = "gestorDeChamadosToolStripMenuItem";
-            this.gestorDeChamadosToolStripMenuItem.Size = new System.Drawing.Size(129, 20);
-            this.gestorDeChamadosToolStripMenuItem.Text = "Gestor de Chamados";
+            this.gestorDeChamadosToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
+            this.gestorDeChamadosToolStripMenuItem.Text = "Gestor de Tecnicos";
+            this.gestorDeChamadosToolStripMenuItem.Click += new System.EventHandler(this.gestorDeChamadosToolStripMenuItem_Click);
             // 
             // gestorDeClientesToolStripMenuItem
             // 

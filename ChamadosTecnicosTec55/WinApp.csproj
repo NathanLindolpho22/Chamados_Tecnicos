@@ -67,11 +67,23 @@
     <Compile Include="Alterar\frmAlterarCliente.Designer.cs">
       <DependentUpon>frmAlterarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Alterar\FrmAlterarTecnico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alterar\FrmAlterarTecnico.Designer.cs">
+      <DependentUpon>FrmAlterarTecnico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alterar\frmGerirClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Alterar\frmGerirClientes.Designer.cs">
       <DependentUpon>frmGerirClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alterar\frmGerirTecnicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alterar\frmGerirTecnicos.Designer.cs">
+      <DependentUpon>frmGerirTecnicos.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -96,8 +108,14 @@
     <EmbeddedResource Include="Alterar\frmAlterarCliente.resx">
       <DependentUpon>frmAlterarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Alterar\FrmAlterarTecnico.resx">
+      <DependentUpon>FrmAlterarTecnico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Alterar\frmGerirClientes.resx">
       <DependentUpon>frmGerirClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alterar\frmGerirTecnicos.resx">
+      <DependentUpon>frmGerirTecnicos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

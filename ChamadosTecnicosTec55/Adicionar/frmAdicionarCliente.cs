@@ -66,5 +66,10 @@ namespace ChamadosTecnicosTec55.Adicionar
                 }
             }
         }
+
+        private void txbNome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

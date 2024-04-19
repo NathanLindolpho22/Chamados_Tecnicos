@@ -49,6 +49,7 @@
             this.dgvCliente.ReadOnly = true;
             this.dgvCliente.Size = new System.Drawing.Size(734, 272);
             this.dgvCliente.TabIndex = 0;
+            this.dgvCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellContentClick);
             // 
             // label1
             // 
@@ -118,6 +119,7 @@
             this.btnExcluir.TabIndex = 7;
             this.btnExcluir.Text = "Excluir Cliente";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // frmGerirClientes
             // 
